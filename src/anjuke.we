@@ -1,0 +1,20 @@
+<template>
+
+    <div class="rootview">
+        <div class="navication" style="flex-direction: row; height: 100px; background: yellowgreen;">
+            <text>test</text>
+        </div>
+    </div>
+
+</template>
+
+<script>
+    module.exports = {
+        data: {},
+        methods: {}
+    }
+</script>
+
+<style>
+
+</style>

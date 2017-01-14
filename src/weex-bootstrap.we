@@ -1,0 +1,5 @@
+<template>
+  <div class="ct" style="height: {{ctHeight}}">
+    <text style="font-size: 42;">Hello Weex24234!</text>
+  </div>
+</template>
