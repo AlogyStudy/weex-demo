@@ -2,7 +2,22 @@
 
     <div class="rootview">
         <div class="navication" style="flex-direction: row; height: 100px; background: yellowgreen;">
-            <text>test</text>
+            <div style="flex: 0.4; justify-content: center; align-items: center;">
+                <text>上海 > </text>
+            </div>
+            <!-- 搜索框 -->
+            <div style="flex: 1; background: tan; justify-content: center;">
+                <div style="flex-direction: row; background: #fff; justify-content: center; align-items: center; border-radius: 4px; margin-left: 20px; margin-right: 20px; height: 70px;">
+                    // 图标文字
+                    <image style="width: 44px; height: 44px; background: cyan;"></image>
+                    <text>搜索房源</text>
+                    <image style="width: 44px; height: 44px; background: cyan;"></image>
+                </div>
+            </div>
+            <div style="flex: 0.4; background: pink; flex-direction: row; justify-content: center;align-items: center;">
+                <image></image>
+                <text>地图</text>
+            </div>
         </div>
     </div>
 
@@ -16,5 +31,7 @@
 </script>
 
 <style>
-
+    body {
+        font-family: "微软雅黑";
+    }
 </style>
