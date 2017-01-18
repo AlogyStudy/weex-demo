@@ -9,9 +9,9 @@
             <div style="flex: 1; background: tan; justify-content: center;">
                 <div style="flex-direction: row; background: #fff; justify-content: center; align-items: center; border-radius: 4px; margin-left: 20px; margin-right: 20px; height: 70px;">
                     // 图标文字
-                    <image style="width: 44px; height: 44px; background: cyan;"></image>
+                    <image src="{{searchIcon}}" style="width: 44px; height: 44px;"></image>
                     <text>搜索房源</text>
-                    <image style="width: 44px; height: 44px; background: cyan;"></image>
+                    <image src="{{}}" style="width: 44px; height: 44px;"></image>
                 </div>
             </div>
             <div style="flex: 0.4; background: pink; flex-direction: row; justify-content: center;align-items: center;">
@@ -25,8 +25,23 @@
 
 <script>
     module.exports = {
-        data: {},
-        methods: {}
+        data: function () {
+            return {
+                searchIcon: '',
+
+            }
+        },
+        methods: {
+
+        },
+        created: function() {
+            // 初始化生命周期回调
+
+        },
+        ready: function() {
+            // 文档初始化完毕
+
+        }
     }
 </script>
 
