@@ -205,39 +205,6 @@
 	          ]
 	        }
 	      ]
-	    },
-	    {
-	      "type": "slider",
-	      "classList": [
-	        "slider"
-	      ],
-	      "attr": {
-	        "interval": "3000",
-	        "autoPlay": "true"
-	      },
-	      "children": [
-	        {
-	          "type": "div",
-	          "classList": [
-	            "frame"
-	          ],
-	          "attr": {
-	            "vFor": "img in imageList"
-	          },
-	          "children": [
-	            {
-	              "type": "image",
-	              "classList": [
-	                "image"
-	              ],
-	              "attr": {
-	                "resize": "cover",
-	                ":src": "img.src"
-	              }
-	            }
-	          ]
-	        }
-	      ]
 	    }
 	  ]
 	}
@@ -280,8 +247,7 @@
 	    data: function data() {
 	        return {
 	            searchIcon: '',
-	            address: 'http://pages.anjukestatic.com/usersite/touch/img/home/home_img3.png',
-	            imageList: [{ src: 'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg' }, { src: 'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg' }, { src: 'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg' }]
+	            address: 'http://pages.anjukestatic.com/usersite/touch/img/home/home_img3.png'
 	        };
 	    },
 	    methods: {},
