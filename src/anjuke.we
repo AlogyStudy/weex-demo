@@ -1,25 +1,33 @@
 <template>
-
-    <div class="rootview">
-        <div class="navication" style="flex-direction: row; height: 100px; background: yellowgreen;">
+        <div class="navication" style="flex-direction: row; height: 100px;">
             <div style="flex: 0.4; justify-content: center; align-items: center;">
-                <text>上海 > </text>
+                <text style="color: #fff; font-size: 32px;">上海 > </text>
             </div>
             <!-- 搜索框 -->
-            <div style="flex: 1; background: tan; justify-content: center;">
-                <div style="flex-direction: row; background: #fff; justify-content: center; align-items: center; border-radius: 4px; margin-left: 20px; margin-right: 20px; height: 70px;">
+            <div style="flex: 1; justify-content: center;">
+                <div style="flex-direction: row; background-color: #f0f7e6; justify-content: center; align-items: center; border-radius: 4px; margin-left: 20px; margin-right: 20px; height: 50px; line-height: 50px; font-size: 14px;">
                     // 图标文字
                     <image src="{{searchIcon}}" style="width: 44px; height: 44px;"></image>
-                    <text>搜索房源</text>
-                    <image src="{{}}" style="width: 44px; height: 44px;"></image>
+                    <text style="color: #999999;">
+                        挑好房,上安居客
+                        <input type="text" placeholder="挑好房,上安居客">
+                    </text>
                 </div>
             </div>
-            <div style="flex: 0.4; background: pink; flex-direction: row; justify-content: center;align-items: center;">
-                <image></image>
-                <text>地图</text>
+            <div style="flex: 0.4; flex-direction: row; justify-content: center;align-items: center;">
+                <a href="#">
+                    <image src="{{address}}" style="width: 14px; height: 18px; background-size: 397px 125px;vertical-align: middle;"></image>
+                </a>
+                <a href="#">
+                    <imgage src="{{address}}" style="width: 15px; height: 18px; -webkit-background-size: ;background-size: 397px 125px; vertical-align: middle;"></imgage>
+                </a>
             </div>
+            <slider class="slider" interval="3000" auto-play="true">
+                <div class="frame"  v-for="img in imageList">
+                    <image class="image" resize="cover" :src="img.src"></image>
+                </div>
+            </slider>
         </div>
-    </div>
 
 </template>
 
@@ -28,7 +36,12 @@
         data: function () {
             return {
                 searchIcon: '',
-
+                address: 'http://pages.anjukestatic.com/usersite/touch/img/home/home_img3.png',
+                imageList: [
+                    { src: 'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg'},
+                    { src: 'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg'},
+                    { src: 'https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg'}
+                ]
             }
         },
         methods: {
@@ -40,13 +53,32 @@
         },
         ready: function() {
             // 文档初始化完毕
-
         }
     }
 </script>
 
 <style>
-    body {
-        font-family: "微软雅黑";
+
+    .navication {
+        background-color: #62ab00;
+    }
+
+    .image {
+        width: 700px;
+        height: 700px;
+    }
+    .slider {
+        margin-top: 25px;
+        margin-left: 25px;
+        width: 700px;
+        height: 700px;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #41B883;
+    }
+    .frame {
+        width: 700px;
+        height: 700px;
+        position: relative;
     }
 </style>
