@@ -1,4 +1,5 @@
 <template>
+    <div class="an-home">
         <div class="navication" style="flex-direction: row; height: 100px;">
             <div style="flex: 0.4; justify-content: center; align-items: center;">
                 <text style="color: #fff; font-size: 32px;">上海 > </text>
@@ -15,14 +16,22 @@
                 </div>
             </div>
             <div style="flex: 0.4; flex-direction: row; justify-content: center;align-items: center;">
-                <a href="#">
-                    <image src="{{address}}" style="width: 14px; height: 18px; background-size: 397px 125px;vertical-align: middle;"></image>
+                <a href="#" style="width: 30px; height: 30px;">
+                    <image src="{{address}}" style="display: inline-block; width: 14px; height: 18px; background-repeat: no-repeat; background-position:  -150px -50px; background-size: 397px 125px; vertical-align: middle;"></image>
                 </a>
                 <a href="#">
-                    <imgage src="{{address}}" style="width: 15px; height: 18px; -webkit-background-size: ;background-size: 397px 125px; vertical-align: middle;"></imgage>
+                    <imgage src="{{address}}" style="width: 15px; height: 18px; background-position: -397px -125px; vertical-align: middle;"></imgage>
                 </a>
             </div>
         </div>
+        <!--end nav-->
+        <div>
+            <div>{{bannerInfo}}</div>
+            <div>
+                <text v-for="item in bannerInfo">{{item}}</text>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -31,6 +40,14 @@
             return {
                 searchIcon: '',
                 address: 'http://pages.anjukestatic.com/usersite/touch/img/home/home_img3.png',
+                bannerInfo: [
+                    {txt: '新房'},
+                    {txt: '二手房'},
+                    {txt: '租房'},
+                    {txt: '商铺写字楼'},
+                    {txt: '实房'},
+                    {txt: '海外地产'}
+                ]
             }
         },
         methods: {

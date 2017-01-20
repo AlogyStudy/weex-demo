@@ -70,82 +70,148 @@
 	module.exports = {
 	  "type": "div",
 	  "classList": [
-	    "navication"
+	    "an-home"
 	  ],
-	  "style": {
-	    "flexDirection": "row",
-	    "height": 100
-	  },
 	  "children": [
 	    {
 	      "type": "div",
+	      "classList": [
+	        "navication"
+	      ],
 	      "style": {
-	        "flex": 0.4,
-	        "justifyContent": "center",
-	        "alignItems": "center"
-	      },
-	      "children": [
-	        {
-	          "type": "text",
-	          "style": {
-	            "color": "#ffffff",
-	            "fontSize": 32
-	          },
-	          "attr": {
-	            "value": "上海 >"
-	          }
-	        }
-	      ]
-	    },
-	    {
-	      "type": "div",
-	      "style": {
-	        "flex": 1,
-	        "justifyContent": "center"
+	        "flexDirection": "row",
+	        "height": 100
 	      },
 	      "children": [
 	        {
 	          "type": "div",
 	          "style": {
-	            "flexDirection": "row",
-	            "backgroundColor": "#f0f7e6",
+	            "flex": 0.4,
 	            "justifyContent": "center",
-	            "alignItems": "center",
-	            "borderRadius": 4,
-	            "marginLeft": 20,
-	            "marginRight": 20,
-	            "height": 50,
-	            "lineHeight": 50,
-	            "fontSize": 14
-	          },
-	          "attr": {
-	            "value": "// 图标文字"
+	            "alignItems": "center"
 	          },
 	          "children": [
 	            {
-	              "type": "image",
-	              "attr": {
-	                "src": function () {return this.searchIcon}
-	              },
-	              "style": {
-	                "width": 44,
-	                "height": 44
-	              }
-	            },
-	            {
 	              "type": "text",
 	              "style": {
-	                "color": "#999999"
+	                "color": "#ffffff",
+	                "fontSize": 32
 	              },
 	              "attr": {
-	                "value": "挑好房,上安居客"
+	                "value": "上海 >"
+	              }
+	            }
+	          ]
+	        },
+	        {
+	          "type": "div",
+	          "style": {
+	            "flex": 1,
+	            "justifyContent": "center"
+	          },
+	          "children": [
+	            {
+	              "type": "div",
+	              "style": {
+	                "flexDirection": "row",
+	                "backgroundColor": "#f0f7e6",
+	                "justifyContent": "center",
+	                "alignItems": "center",
+	                "borderRadius": 4,
+	                "marginLeft": 20,
+	                "marginRight": 20,
+	                "height": 50,
+	                "lineHeight": 50,
+	                "fontSize": 14
+	              },
+	              "attr": {
+	                "value": "// 图标文字"
 	              },
 	              "children": [
 	                {
-	                  "type": "input",
+	                  "type": "image",
 	                  "attr": {
-	                    "type": "text",
-	                    "placeholder": "挑好房,上安居客"
+	                    "src": function () {return this.searchIcon}
+	                  },
+	                  "style": {
+	                    "width": 44,
+	                    "height": 44
+	                  }
+	                },
+	                {
+	                  "type": "text",
+	                  "style": {
+	                    "color": "#999999"
+	                  },
+	                  "attr": {
+	                    "value": "挑好房,上安居客"
+	                  },
+	                  "children": [
+	                    {
+	                      "type": "input",
+	                      "attr": {
+	                        "type": "text",
+	                        "placeholder": "挑好房,上安居客"
+	                      }
+	                    }
+	                  ]
+	                }
+	              ]
+	            }
+	          ]
+	        },
+	        {
+	          "type": "div",
+	          "style": {
+	            "flex": 0.4,
+	            "flexDirection": "row",
+	            "justifyContent": "center",
+	            "alignItems": "center"
+	          },
+	          "children": [
+	            {
+	              "type": "a",
+	              "attr": {
+	                "href": "#"
+	              },
+	              "style": {
+	                "width": 30,
+	                "height": 30
+	              },
+	              "children": [
+	                {
+	                  "type": "image",
+	                  "attr": {
+	                    "src": function () {return this.address}
+	                  },
+	                  "style": {
+	                    "display": "inline-block",
+	                    "width": 14,
+	                    "height": 18,
+	                    "backgroundRepeat": "no-repeat",
+	                    "backgroundPosition": -150,
+	                    "backgroundSize": 397,
+	                    "verticalAlign": "middle"
+	                  }
+	                }
+	              ]
+	            },
+	            {
+	              "type": "a",
+	              "attr": {
+	                "href": "#"
+	              },
+	              "children": [
+	                {
+	                  "type": "imgage",
+	                  "attr": {
+	                    "src": function () {return this.address}
+	                  },
+	                  "style": {
+	                    "width": 15,
+	                    "height": 18,
+	                    "backgroundPosition": -397,
+	                    "verticalAlign": "middle"
 	                  }
 	                }
 	              ]
@@ -156,50 +222,21 @@
 	    },
 	    {
 	      "type": "div",
-	      "style": {
-	        "flex": 0.4,
-	        "flexDirection": "row",
-	        "justifyContent": "center",
-	        "alignItems": "center"
-	      },
 	      "children": [
 	        {
-	          "type": "a",
+	          "type": "div",
 	          "attr": {
-	            "href": "#"
-	          },
-	          "children": [
-	            {
-	              "type": "image",
-	              "attr": {
-	                "src": function () {return this.address}
-	              },
-	              "style": {
-	                "width": 14,
-	                "height": 18,
-	                "backgroundSize": 397,
-	                "verticalAlign": "middle"
-	              }
-	            }
-	          ]
+	            "value": function () {return this.bannerInfo}
+	          }
 	        },
 	        {
-	          "type": "a",
-	          "attr": {
-	            "href": "#"
-	          },
+	          "type": "div",
 	          "children": [
 	            {
-	              "type": "imgage",
+	              "type": "text",
 	              "attr": {
-	                "src": function () {return this.address}
-	              },
-	              "style": {
-	                "width": 15,
-	                "height": 18,
-	                "WebkitBackgroundSize": "",
-	                "backgroundSize": 397,
-	                "verticalAlign": "middle"
+	                "vFor": "item in bannerInfo",
+	                "value": function () {return this.item}
 	              }
 	            }
 	          ]
@@ -247,7 +284,8 @@
 	    data: function data() {
 	        return {
 	            searchIcon: '',
-	            address: 'http://pages.anjukestatic.com/usersite/touch/img/home/home_img3.png'
+	            address: 'http://pages.anjukestatic.com/usersite/touch/img/home/home_img3.png',
+	            bannerInfo: [{ txt: '新房' }, { txt: '二手房' }, { txt: '租房' }, { txt: '商铺写字楼' }, { txt: '实房' }, { txt: '海外地产' }]
 	        };
 	    },
 	    methods: {},
