@@ -16,42 +16,126 @@
                 </div>
             </div>
             <div style="flex: 0.4; flex-direction: row; justify-content: center;align-items: center;">
-                <a href="#" style="width: 30px; height: 30px;">
-                    <image src="{{address}}" style="display: inline-block; width: 14px; height: 18px; background-repeat: no-repeat; background-position:  -150px -50px; background-size: 397px 125px; vertical-align: middle;"></image>
+                <a href="#" style="flex: 1; justify-content: center; align-items: center;">
+                    <image src="{{map}}" style="display: inline-block; width: 30px; height: 30px; vertical-align: middle;"></image>
                 </a>
-                <a href="#">
-                    <imgage src="{{address}}" style="width: 15px; height: 18px; background-position: -397px -125px; vertical-align: middle;"></imgage>
+                <a href="#" style="flex: 1; justify-content: center; align-items: center;">
+                    <image src="{{persion}}" style="width: 30px; height: 30px; vertical-align: middle;"></image>
                 </a>
             </div>
         </div>
         <!--end nav-->
-        <div>
-            <div>{{bannerInfo}}</div>
-            <div>
-                <text v-for="item in bannerInfo">{{item}}</text>
+        <div class="tab" style="flex-direction: row; flex-wrap: wrap;">
+            <div repeat="bannerInfo" style="width: {{100/4}}%; align-items: center; font-size: 14px; margin-top: 10px; margin-bottom: 10px; box-sizing: border-box;">
+                <image style="width: 94px; height: 94px;" src="{{bannerInfo[$index]['src']}}"></image>
+                <text style="line-height: 50px; font-size: 28px;">{{bannerInfo[$index]['txt']}}</text>
+            </div>
+        </div>
+        <!--end tab-->
+
+        <div class="tuijian" style="flex-direction: row; height: 60px; margin-top: 5px; background: #F1F1F1;">
+            <div style="flex: 0.3; align-items: center; justify-content: center;">
+                <image src="{{tuijian}}" style="width: 120px; height: 40px;"></image>
+            </div>
+            <div style="flex: 1;  align-items: center; justify-content: center;"><text style="font-size: 26px;"> ○ 满五唯一无税费，买到就是赚到，好房源不等人</text></div>
+
+            <!--<wxc-marquee>-->
+                <!--<div class="wrap" onappear="appeared" ondisappear="disappeared">-->
+                    <!--<div id="anim" class="anim">-->
+                        <!--<content><text style="font-size: 26px;">满五唯一无税费，买到就是赚到，好房源不等人</text></content>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</wxc-marquee>-->
+        </div>
+        <!--end tuijian-->
+
+        <div class="nav-two">
+            <div style="padding-left: 20px; padding-right: 20px; flex-direction: row; justify-content: space-between; margin-top: 10px;">
+                <div repeat="navTwo1"><a href="#"><text style="font-size: 24px;">{{navTwo1[$index]}}</text></a></div>
+                <div><text> > </text></div>
+            </div>
+            <div style="padding-left: 20px; padding-right: 20px; flex-direction: row; justify-content: space-between; margin-top: 10px;">
+                <div repeat="navTwo2"><a href="#"><text style="font-size: 24px;">{{navTwo2[$index]}}</text></a></div>
+                <div><text> > </text></div>
+            </div>
+            <div style="padding-left: 20px; padding-right: 20px; flex-direction: row; justify-content: space-between; margin-top: 10px;">
+                <div repeat="navTwo3"><a href="#"><text style="font-size: 24px;">{{navTwo3[$index]}}</text></a></div>
+                <div><text> > </text></div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    require('weex-components');
+
     module.exports = {
         data: function () {
             return {
                 searchIcon: '',
                 address: 'http://pages.anjukestatic.com/usersite/touch/img/home/home_img3.png',
+                map: './img/map.png',
+                persion: './img/persion.png',
+                tuijian: './img/tuijian.png',
                 bannerInfo: [
-                    {txt: '新房'},
-                    {txt: '二手房'},
-                    {txt: '租房'},
-                    {txt: '商铺写字楼'},
-                    {txt: '实房'},
-                    {txt: '海外地产'}
-                ]
+                    {src: './img/1.png', txt: '新房'},
+                    {src: './img/2.png', txt: '二手房'},
+                    {src: './img/3.png', txt: '租房'},
+                    {src: './img/4.png', txt: '商铺写字楼'},
+                    {src: './img/5.png', txt: '实房'},
+                    {src: './img/6.png', txt: '海外地产'},
+                    {src: './img/7.png', txt: '小区房价'},
+                    {src: './img/8.png', txt: '装修'}
+                ],
+
+                step: 0,
+                count: 0,
+                index: 1,
+                duration: 0,
+                interval: 0,
+                outofview: false,
+
+                navTwo1: ['附近', '浦东', '闵行', '宝山', '普陀', '徐汇', '长宁', '松江', '青浦'],
+                navTwo2: ['300-400万元', '1000万元以上', '500-700万元'],
+                navTwo3: ['一室', '二室', '三室', '四室', '五室', '五室以上']
             }
         },
         methods: {
-
+            nextTick: function() {
+                var self = this;
+                if (this.outofview) {
+                    setTimeout(self.nextTick.bind(self), self.interval);
+                } else {
+                    setTimeout(function() {
+                        self.animation(self.nextTick.bind(self));
+                    }, self.interval);
+                }
+            },
+            animation: function(cb) {
+                var self = this;
+                var offset = -self.step * self.index;
+                var $animation = require('@weex-module/animation');
+                $animation.transition(this.$el('anim'), {
+                    styles: {
+                        transform: 'translateY(' + String(offset) + 'px) translateZ(0)'
+                    },
+                    timingFunction: 'ease',
+                    duration: self.duration
+                }, function() {
+                    self.index = (self.index + 1) % (self.count);
+                    self.$emit('change', {
+                        index: self.index,
+                        count: self.count
+                    });
+                    cb && cb();
+                });
+            },
+            appeared: function() {
+                this.outofview = false;
+            },
+            disappeared: function() {
+                this.outofview = true;
+            }
         },
         created: function() {
             // 初始化生命周期回调
@@ -59,6 +143,14 @@
         },
         ready: function() {
             // 文档初始化完毕
+
+            if (this.interval > 0
+                && this.step > 0
+                && this.duration > 0) {
+                this.nextTick();
+            }
+
+
         }
     }
 </script>
@@ -69,22 +161,14 @@
         background-color: #62ab00;
     }
 
-    .image {
-        width: 700px;
-        height: 700px;
-    }
-    .slider {
-        margin-top: 25px;
-        margin-left: 25px;
-        width: 700px;
-        height: 700px;
-        border-width: 2px;
-        border-style: solid;
-        border-color: #41B883;
-    }
-    .frame {
-        width: 700px;
-        height: 700px;
+    .wrap {
+        overflow: hidden;
         position: relative;
+    }
+
+    .anim {
+        flex-direction: column;
+        position: absolute;
+        transform: translateY(0) translateZ(0);
     }
 </style>
